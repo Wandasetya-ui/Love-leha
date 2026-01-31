@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Aku Sayang Lehaa 💖</title>
+
+<style>
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: radial-gradient(circle at top, #1b0033, #000);
+    font-family: 'Comic Sans MS', cursive;
+}
+
+/* LOVE TENGAH */
+.center-love {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+}
+
+.heart {
+    font-size: 120px;
+    animation: pulse 1.2s infinite;
+}
+
+.text {
+    color: pink;
+    font-size: 28px;
+    margin-top: 10px;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px hotpink; }
+    to { text-shadow: 0 0 30px deeppink; }
+}
+
+/* LOVE JATUH */
+.fall {
+    position: absolute;
+    font-size: 24px;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    from { top: -10%; opacity: 1; }
+    to { top: 110%; opacity: 0; }
+}
+
+/* LOVE TERBANG */
+.fly {
+    position: absolute;
+    font-size: 20px;
+    animation: fly 6s linear infinite;
+}
+
+@keyframes fly {
+    0% { transform: translate(0,0) scale(1); opacity: 1; }
+    100% { transform: translate(300px,-600px) scale(0); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="center-love">
+    <div class="heart">💖</div>
+    <div class="text">Aku Sayang Lehaa 💕</div>
+</div>
+
+<audio autoplay loop>
+    <source src="https://files.catbox.moe/7s6z5g.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+// Love jatuh rame
+function fallingLove() {
+    const love = document.createElement("div");
+    love.className = "fall";
+    love.innerHTML = "💗";
+    love.style.left = Math.random() * 100 + "vw";
+    love.style.animationDuration = (3 + Math.random() * 4) + "s";
+    document.body.appendChild(love);
+
+    setTimeout(() => love.remove(), 8000);
+}
+setInterval(fallingLove, 200);
+
+// Love terbang dari bawah
+function flyingLove() {
+    const love = document.createElement("div");
+    love.className = "fly";
+    love.innerHTML = "💘";
+    love.style.left = Math.random() * 100 + "vw";
+    love.style.bottom = "-50px";
+    document.body.appendChild(love);
+
+    setTimeout(() => love.remove(), 6000);
+}
+setInterval(flyingLove, 400);
+</script>
+
+</body>
+</html>
